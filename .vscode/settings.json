@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"chrono": "c",
-		"push_swap.h": "c",
-		"functional": "c"
-	}
-}

@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 17:37:11 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:55:07 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,4 @@ t_swap	*set_cost(t_swap **stack_b, int stack_a_size, int stack_b_size);
 // Handle sizes
 void	handle_two(t_swap **stack);
 void	handle_three(t_swap **stack);
-
 #endif
