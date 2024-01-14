@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:05:46 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/13 19:39:40 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:32:08 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,14 @@ void	reverse_rotate(t_swap **stack)
 	first->next = NULL;
 	last_list->prev = NULL;
 	push_front(stack, last_list);
+}
+
+void	reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b)
+{
+	if (!stack_a || !*stack_a || !(*stack_a)->next
+		|| !stack_b || !*stack_b || !(*stack_b)->next)
+		return ;
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	ft_printf("rrr\n");
 }

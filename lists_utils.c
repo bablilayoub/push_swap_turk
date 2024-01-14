@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:34:53 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/13 23:32:25 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:30:38 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,23 @@ void	free_list(t_swap *stack)
 		if (stack == head)
 			break ;
 	}
+}
+
+int	list_size(t_swap *stack)
+{
+	int		i;
+	t_swap	*temp_list;
+
+	if (!stack)
+		return (0);
+	i = 0;
+	temp_list = stack;
+	while (temp_list)
+	{
+		i++;
+		if (temp_list->next == stack)
+			break ;
+		temp_list = temp_list->next;
+	}
+	return (i);
 }

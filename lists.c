@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 18:38:07 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/13 23:34:11 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:30:45 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,6 @@ void	push_back(t_swap **stack, t_swap *new_node)
 		else
 			*stack = new_node;
 	}
-}
-
-int	list_size(t_swap *stack)
-{
-	int		i;
-	t_swap	*temp_list;
-
-	if (!stack)
-		return (0);
-	i = 0;
-	temp_list = stack;
-	while (temp_list)
-	{
-		i++;
-		if (temp_list->next == stack)
-			break ;
-		temp_list = temp_list->next;
-	}
-	return (i);
 }
 
 int	get_min_value(t_swap *stack)

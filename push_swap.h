@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 01:17:50 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:37:11 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		get_min_index(t_swap *stack);
 int		is_sorted(t_swap **stack);
 t_swap	*get_last_list(t_swap *list);
 void	free_list(t_swap *stack);
+int		list_size(t_swap *stack);
 
 // Utils
 void	free_args(char **args);
@@ -48,7 +49,6 @@ void	send_error(void);
 t_swap	*new_list(int value);
 void	push_front(t_swap **stack, t_swap *new_node);
 void	push_back(t_swap **stack, t_swap *new_node);
-int		list_size(t_swap *stack);
 int		get_min_value(t_swap *stack);
 int		get_max_value(t_swap *stack);
 
@@ -79,6 +79,7 @@ void	swap(t_swap **stack);
 void	push(t_swap **stack_a, t_swap **stack_b);
 void	rotate(t_swap **stack);
 void	reverse_rotate(t_swap **stack);
+void	reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b);
 
 // Utils
 int		next_min_value(t_swap *stack, int min_value);
@@ -94,6 +95,10 @@ int		get_median(t_swap *stack);
 void	set_targets(t_swap **stack_a, t_swap **stack_b, int found_target);
 
 // Cost
-void	set_cost(t_swap **stack_a, t_swap **stack_b);
+t_swap	*set_cost(t_swap **stack_b, int stack_a_size, int stack_b_size);
+
+// Handle sizes
+void	handle_two(t_swap **stack);
+void	handle_three(t_swap **stack);
 
 #endif

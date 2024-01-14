@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:33:22 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 00:33:47 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:32:33 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_median(t_swap *stack)
 		return (0);
 	min_value = get_min_value(stack);
 	max_value = get_max_value(stack);
-	return ((min_value + max_value) / 2);	
+	return ((min_value + max_value) / 2);
 }
 
 t_swap	*get_min_target(t_swap *stack)
@@ -65,7 +65,7 @@ void	set_targets(t_swap **stack_a, t_swap **stack_b, int found_target)
 	t_swap	*temp_a;
 	t_swap	*temp_b;
 	t_swap	*target;
-	
+
 	temp_b = *stack_b;
 	while (temp_b)
 	{

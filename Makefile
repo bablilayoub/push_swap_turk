@@ -3,7 +3,7 @@ HEADER			=	push_swap.h
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror
 SRCS			=	indexing.c lists_utils.c lists.c main.c more_operations.c operations.c \
-					parse_args.c stack.c start_sorting.c utils.c targets.c cost.c
+					parse_args.c stack.c start_sorting.c utils.c targets.c cost.c handle_sizes.c
 LIBS			=	./libs/ft_printf/libftprintf.a ./libs/libft/libft.a
 OBJ				=	$(SRCS:.c=.o)
 

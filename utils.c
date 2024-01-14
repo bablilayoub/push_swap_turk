@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:12:01 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 01:21:44 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 17:36:06 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,25 @@ void	print_stack(t_swap *stack)
 	t_swap	*temp;
 	int		target_value;
 	int		cost;
-	
+	char	*above_median_str;
+	char	*target_value_str;
+
 	temp = stack;
+	above_median_str = "Above median: ";
+	target_value_str = "Target Value: ";
 	while (temp)
 	{
-		target_value = temp->target ? temp->target->value : 0;
-		cost = temp->push_cost ? temp->push_cost : 0;
-		ft_printf("Value: %d, Index: %d, Above median: %d, Target Value %d, Push cost : %d\n",
-			temp->value, temp->index, temp->above_median, target_value, cost);
+		if (temp->target)
+			target_value = temp->target->value;
+		else
+			target_value = 0;
+		if (temp->push_cost)
+			cost = temp->push_cost;
+		else
+			cost = 0;
+		ft_printf("Value: %d, Index: %d, %s%d, %s%d, Push cost : %d\n",
+			temp->value, temp->index, above_median_str, temp->above_median,
+			target_value_str, target_value, cost);
 		temp = temp->next;
 	}
 }
