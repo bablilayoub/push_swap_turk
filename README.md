@@ -1,4 +1,4 @@
-# Push_swap (Radix sort) - 84/100
+# Push_swap (Turk sort) - 125/100
 
 ## Summary
 Sort data on a stack with limited instructions, minimizing actions.
