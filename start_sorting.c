@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:46:02 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 18:02:12 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 21:04:48 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	move_min_to_top(t_swap **stack_a)
 			rotate_a(stack_a);
 		else
 			reverse_rotate_a(stack_a);
+		set_index(*stack_a);
 	}
 }
 
