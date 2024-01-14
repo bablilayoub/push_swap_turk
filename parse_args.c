@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:06:15 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/13 23:20:56 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 21:36:08 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	is_valid_number(char *number)
 	if (!number[i])
 		return (0);
 	found_sign(number, &i, &sign);
+	if (!number[i])
+		return (0);
 	while (number[i])
 	{
 		if (!ft_isdigit(number[i]))

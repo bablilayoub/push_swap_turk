@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 17:55:07 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/14 21:50:59 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "libs/libft/libft.h"
 # include "libs/ft_printf/ft_printf.h"
+# include "libs/get_next_line/get_next_line.h"
 
 // Swap struct
 typedef struct s_swap
