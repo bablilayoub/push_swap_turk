@@ -6,26 +6,31 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:12:01 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 17:36:06 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 00:56:25 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	next_min_value(t_swap *stack, int min_value)
+char	*check_if_valid_number(char *result, char *number)
 {
-	t_swap	*temp_list;
-	int		next_min_value;
+	int	i;
+	int	found_digit;
 
-	temp_list = stack;
-	next_min_value = INT_MAX;
-	while (temp_list)
+	i = 0;
+	found_digit = 0;
+	while (number[i])
 	{
-		if (temp_list->value > min_value && temp_list->value < next_min_value)
-			next_min_value = temp_list->value;
-		temp_list = temp_list->next;
+		if (ft_isdigit(number[i]))
+			found_digit = 1;
+		i++;
 	}
-	return (next_min_value);
+	if (!found_digit)
+	{
+		free(result);
+		send_error();
+	}
+	return (number);
 }
 
 char	*convert_args(char **args)
@@ -40,7 +45,7 @@ char	*convert_args(char **args)
 	while (args[++i])
 	{
 		temp = result;
-		result = ft_strjoin(result, args[i]);
+		result = ft_strjoin(result, check_if_valid_number(result, args[i]));
 		if (!result)
 		{
 			free(temp);

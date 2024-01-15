@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 20:54:37 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 00:56:58 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int		list_size(t_swap *stack);
 // Utils
 void	free_args(char **args);
 void	send_error(void);
+
+// More utils
+int		next_min_value(t_swap *stack, int min_value);
 
 // List
 t_swap	*new_list(int value);

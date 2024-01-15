@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:46:02 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 22:40:48 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 00:13:18 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ void	start_pushing(t_swap *cheap_node, t_swap **stack_a, t_swap **stack_b)
 {
 	if (!cheap_node || !stack_a || !*stack_a || !stack_b || !*stack_b)
 		return ;
+	while (*stack_b && *stack_a
+		&& (*stack_b != cheap_node && *stack_a != cheap_node->target)
+		&& (cheap_node->above_median && cheap_node->target->above_median))
+		rotate_a_and_b(stack_a, stack_b);
+	while (*stack_b && *stack_a
+		&& (*stack_b != cheap_node && *stack_a != cheap_node->target)
+		&& (!cheap_node->above_median && !cheap_node->target->above_median))
+		reverse_rotate_a_and_b(stack_a, stack_b);
 	while (*stack_b && (*stack_b != cheap_node))
 	{
 		if (cheap_node->above_median)

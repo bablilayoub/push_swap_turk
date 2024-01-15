@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:06:15 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 22:38:37 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 00:48:42 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**handle_args(char **args)
 		send_error();
 	while (args[i])
 	{
-		if (!is_valid_number(args[i]))
+		if (!is_valid_number(args[i]) || !args[i][0])
 		{
 			free_args(args);
 			send_error();
