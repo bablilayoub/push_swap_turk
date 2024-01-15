@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:46:02 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 21:04:48 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/15 22:40:48 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,10 @@ void	start_sorting(t_swap **stack_a, t_swap **stack_b)
 	if (!stack_a || !*stack_a)
 		return ;
 	if (is_sorted(stack_a))
+	{
+		free_list(*stack_a);
 		return ;
+	}
 	stack_size = list_size(*stack_a);
 	if (stack_size == 2)
 		handle_two(stack_a);
