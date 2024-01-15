@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:10:00 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 21:34:56 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/15 23:34:58 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strcmp(char *s1, char *s2)
 	char	*new_s1;
 
 	i = 0;
-	new_s1 = ft_strtrim(s1, "\n ");
+	new_s1 = ft_strtrim(s1, "\n");
 	if (!new_s1)
 		return (0);
 	while (new_s1[i] && s2[i])
