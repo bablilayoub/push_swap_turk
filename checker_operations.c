@@ -1,55 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more_operations.c                                  :+:      :+:    :+:   */
+/*   checker_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 16:41:56 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 16:09:28 by abablil          ###   ########.fr       */
+/*   Created: 2024/01/15 19:04:33 by abablil           #+#    #+#             */
+/*   Updated: 2024/01/15 19:09:45 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_swap **stack_a)
+void	checker_swap_a(t_swap **stack_a)
 {
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
-	rotate(stack_a);
-	ft_printf("ra\n");
+	swap(stack_a);
 }
 
-void	rotate_b(t_swap **stack_b)
+void	checker_swap_b(t_swap **stack_b)
 {
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
-	rotate(stack_b);
-	ft_printf("rb\n");
+	swap(stack_b);
 }
 
-void	rotate_a_and_b(t_swap **stack_a, t_swap **stack_b)
+void	checker_swap_a_and_b(t_swap **stack_a, t_swap **stack_b)
 {
 	if (!stack_a || !*stack_a || !(*stack_a)->next
 		|| !stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
+	swap(stack_a);
+	swap(stack_b);
 }
 
-void	reverse_rotate_a(t_swap **stack_a)
+void	checker_push_a(t_swap **stack_a, t_swap **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next)
+	if (!stack_b || !*stack_b || !stack_a)
 		return ;
-	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	push(stack_b, stack_a);
 }
 
-void	reverse_rotate_b(t_swap **stack_b)
+void	checker_push_b(t_swap **stack_a, t_swap **stack_b)
 {
-	if (!stack_b || !*stack_b || !(*stack_b)->next)
+	if (!stack_a || !*stack_a || !stack_b)
 		return ;
-	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	push(stack_a, stack_b);
 }

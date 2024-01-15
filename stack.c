@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:05:46 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 17:32:08 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:10:27 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,13 @@ void	rotate(t_swap **stack)
 void	reverse_rotate(t_swap **stack)
 {
 	t_swap	*last_list;
-	t_swap	*first;
+	t_swap	*last_prev;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	last_list = *stack;
-	while (last_list->next)
-		last_list = last_list->next;
-	first = last_list->prev;
-	first->next = NULL;
+	last_list = get_last_list(*stack);
+	last_prev = last_list->prev;
+	last_prev->next = NULL;
 	last_list->prev = NULL;
 	push_front(stack, last_list);
 }

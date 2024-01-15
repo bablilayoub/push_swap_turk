@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 21:50:59 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/15 20:54:37 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,24 @@ t_swap	*set_cost(t_swap **stack_b, int stack_a_size, int stack_b_size);
 // Handle sizes
 void	handle_two(t_swap **stack);
 void	handle_three(t_swap **stack);
+
+// Checker
+void	checker_swap_a(t_swap **stack_a);
+void	checker_swap_b(t_swap **stack_b);
+void	checker_swap_a_and_b(t_swap **stack_a, t_swap **stack_b);
+void	checker_push_a(t_swap **stack_a, t_swap **stack_b);
+void	checker_push_b(t_swap **stack_a, t_swap **stack_b);
+void	checker_rotate_a(t_swap **stack_a);
+void	checker_rotate_b(t_swap **stack_b);
+void	checker_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b);
+void	checker_reverse_rotate_a(t_swap **stack_a);
+void	checker_reverse_rotate_b(t_swap **stack_b);
+void	checker_reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b);
+
+// Checker utils
+int		ft_strcmp(char *s1, char *s2);
+void	invalid_instruction(t_swap **stack_a, t_swap **stack_b, char *line);
+void	checker_reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b);
+void	check_instruction(char *line, t_swap **stack_a, t_swap **stack_b);
+
 #endif

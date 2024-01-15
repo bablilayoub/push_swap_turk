@@ -5,8 +5,9 @@ CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror
 SRCS			=	indexing.c lists_utils.c lists.c main.c more_operations.c operations.c \
 					parse_args.c stack.c start_sorting.c utils.c targets.c cost.c handle_sizes.c
-SRCS_BONUS		=	indexing.c lists_utils.c lists.c more_operations.c operations.c \
-					parse_args.c stack.c start_sorting.c utils.c targets.c cost.c handle_sizes.c checker.c
+SRCS_BONUS		=	indexing.c lists_utils.c lists.c more_operations.c operations.c checker_operations.c \
+					checker_operations_more.c checker_utils.c parse_args.c stack.c start_sorting.c utils.c \
+					targets.c cost.c handle_sizes.c checker.c
 LIBS			=	./libs/ft_printf/libftprintf.a ./libs/libft/libft.a ./libs/get_next_line/get_next_line.c \
 					./libs/get_next_line/get_next_line_utils.c
 OBJ				=	$(SRCS:.c=.o)
@@ -31,14 +32,14 @@ bonus: comp_start $(OBJ_BONUS)
 
 clean:
 	@echo "Cleaning ..."
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJ_BONUS)
 	@cd ./libs/libft && make clean
 	@cd ./libs/ft_printf && make clean
 	@echo "Cleaning Done"
 
 fclean : clean
 	@echo "Full Cleaning ..."
-	@rm -f $(OBJ) $(NAME)
+	@rm -f $(OBJ) $(OBJ_BONUS) $(NAME) $(NAME_BONUS)
 	@cd ./libs/libft && make fclean
 	@cd ./libs/ft_printf && make fclean
 	@echo "Full Cleaning Done"

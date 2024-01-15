@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:44:12 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 21:53:10 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/15 21:41:33 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,10 @@ void	checker(t_swap **stack_a, t_swap **stack_b)
 	line = get_next_line(0);
 	while (line)
 	{
-		if (!ft_strncmp(line, "sa", 2))
-			swap_a(stack_a);
-		else if (!ft_strncmp(line, "sb", 2))
-			swap_b(stack_b);
-		else if (!ft_strncmp(line, "ss", 2))
-			swap_a_and_b(stack_a, stack_b);
-		else if (!ft_strncmp(line, "pa", 2))
-			push_a(stack_a, stack_b);
-		else if (!ft_strncmp(line, "pb", 2))
-			push_b(stack_a, stack_b);
-		else if (!ft_strncmp(line, "ra", 2))
-			rotate_a(stack_a);
-		else if (!ft_strncmp(line, "rb", 2))
-			rotate_b(stack_b);
-		else if (!ft_strncmp(line, "rr", 2))
-			reverse_rotate_a_and_b(stack_a, stack_b);
-		else if (!ft_strncmp(line, "rra", 2))
-			reverse_rotate_a(stack_a);
-		else if (!ft_strncmp(line, "rrb", 2))
-			reverse_rotate_b(stack_b);
-		else if (!ft_strncmp(line, "rrr", 2))
-			reverse_rotate_a_and_b(stack_a, stack_b);
-		else
-			send_error();
+		check_instruction(line, stack_a, stack_b);
 		free(line);
 		line = get_next_line(0);
 	}
-	if (is_sorted(*stack_a) && !*stack_b)
-		ft_putstr("OK\n");
-	else
-		ft_putstr("KO\n");
 }
 
 int	main(int total, char **args)
@@ -64,5 +37,11 @@ int	main(int total, char **args)
 	args = handle_args(args);
 	prepare_stack(&stack_a, args);
 	checker(&stack_a, &stack_b);
+	if (is_sorted(&stack_a) && !stack_b)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	free_list(stack_a);
+	free_list(stack_b);
 	return (0);
 }
