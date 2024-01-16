@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:46:02 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 20:10:09 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 22:25:10 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,17 @@ void	sort_back(t_swap **stack_a, t_swap **stack_b)
 
 void	move_min_to_top(t_swap **stack_a)
 {
-	int	min_index_value;
+	t_swap	*min_index_target;
 
 	if (!stack_a || !*stack_a)
 		return ;
-	min_index_value = get_min_index_value(*stack_a);
-	while ((*stack_a)->index_value != min_index_value)
+	min_index_target = get_min_target(*stack_a);
+	while (*stack_a != min_index_target)
 	{
-		if ((*stack_a)->above_median)
+		if (min_index_target->above_median)
 			rotate_a(stack_a);
 		else
 			reverse_rotate_a(stack_a);
-		set_index(*stack_a);
 	}
 }
 
