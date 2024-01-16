@@ -6,13 +6,13 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:10:00 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 23:34:58 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:28:32 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	valid_instruction(char *s1, char *s2)
 {
 	int		i;
 	char	*new_s1;
@@ -70,29 +70,29 @@ void	check_if_sorted(t_swap **stack_a, t_swap **stack_b, char *line)
 
 void	check_instruction(char *line, t_swap **stack_a, t_swap **stack_b)
 {
-	if (ft_strcmp(line, "sa"))
+	if (valid_instruction(line, "sa"))
 		return (checker_swap_a(stack_a));
-	else if (ft_strcmp(line, "sb"))
+	else if (valid_instruction(line, "sb"))
 		return (checker_swap_b(stack_b));
-	else if (ft_strcmp(line, "ss"))
+	else if (valid_instruction(line, "ss"))
 		return (checker_swap_a_and_b(stack_a, stack_b));
-	else if (ft_strcmp(line, "pa"))
+	else if (valid_instruction(line, "pa"))
 		return (checker_push_a(stack_a, stack_b));
-	else if (ft_strcmp(line, "pb"))
+	else if (valid_instruction(line, "pb"))
 		return (checker_push_b(stack_a, stack_b));
-	else if (ft_strcmp(line, "ra"))
+	else if (valid_instruction(line, "ra"))
 		return (checker_rotate_a(stack_a));
-	else if (ft_strcmp(line, "rb"))
+	else if (valid_instruction(line, "rb"))
 		return (checker_rotate_b(stack_b));
-	else if (ft_strcmp(line, "rr"))
+	else if (valid_instruction(line, "rr"))
 		return (checker_rotate_a_and_b(stack_a, stack_b));
-	else if (ft_strcmp(line, "rra"))
+	else if (valid_instruction(line, "rra"))
 		return (checker_reverse_rotate_a(stack_a));
-	else if (ft_strcmp(line, "rrb"))
+	else if (valid_instruction(line, "rrb"))
 		return (checker_reverse_rotate_b(stack_b));
-	else if (ft_strcmp(line, "rrr"))
+	else if (valid_instruction(line, "rrr"))
 		return (checker_reverse_rotate_a_and_b(stack_a, stack_b));
-	else if (ft_strcmp(line, "done"))
+	else if (valid_instruction(line, "done"))
 		return (check_if_sorted(stack_a, stack_b, line));
 	return (invalid_instruction(stack_a, stack_b, line));
 }
