@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:38:27 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 01:46:31 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:02:55 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,28 @@ void	set_index(t_swap *stack)
 			temp_list->above_median = 0;
 		i++;
 		temp_list = temp_list->next;
+	}
+}
+
+void	set_index_value(t_swap *stack)
+{
+	t_swap	*temp_list;
+	int		i;
+	int		min_value;
+
+	temp_list = stack;
+	min_value = get_min_value(stack);
+	i = 0;
+	while (temp_list)
+	{
+		if (temp_list->value == min_value)
+		{
+			temp_list->index_value = i;
+			i++;
+			min_value = next_min_value(stack, min_value);
+			temp_list = stack;
+		}
+		else
+			temp_list = temp_list->next;
 	}
 }

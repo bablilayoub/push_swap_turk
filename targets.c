@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:33:22 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/14 17:32:33 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:23:05 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	get_median(t_swap *stack)
 {
-	int	min_value;
-	int	max_value;
+	int	min_index_value;
+	int	max_index_value;
 
 	if (!stack)
 		return (0);
-	min_value = get_min_value(stack);
-	max_value = get_max_value(stack);
-	return ((min_value + max_value) / 2);
+	min_index_value = get_min_index_value(stack);
+	max_index_value = get_max_index_value(stack);
+	return ((min_index_value + max_index_value) / 2);
 }
 
 t_swap	*get_min_target(t_swap *stack)
@@ -35,7 +35,7 @@ t_swap	*get_min_target(t_swap *stack)
 	target = temp_list;
 	while (temp_list)
 	{
-		if (temp_list->value < target->value)
+		if (temp_list->index_value < target->index_value)
 			target = temp_list;
 		temp_list = temp_list->next;
 	}
@@ -53,7 +53,7 @@ t_swap	*get_max_target(t_swap *stack)
 	target = temp_list;
 	while (temp_list)
 	{
-		if (temp_list->value > target->value)
+		if (temp_list->index_value > target->index_value)
 			target = temp_list;
 		temp_list = temp_list->next;
 	}
@@ -69,12 +69,12 @@ void	set_targets(t_swap **stack_a, t_swap **stack_b, int found_target)
 	temp_b = *stack_b;
 	while (temp_b)
 	{
-		found_target = 0;
-		temp_a = *stack_a;
+		(1 == 1) && (found_target = 0, temp_a = *stack_a);
 		target = get_max_target(*stack_a);
 		while (temp_a)
 		{
-			if (temp_a->value > temp_b->value && temp_a->value <= target->value)
+			if (temp_a->index_value > temp_b->index_value
+				&& temp_a->index_value <= target->index_value)
 			{
 				target = temp_a;
 				found_target = 1;

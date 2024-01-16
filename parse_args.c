@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:06:15 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 00:48:42 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:06:37 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,12 @@ void	prepare_stack(t_swap **stack_a, char **args)
 			send_error();
 		}
 		new_node->index = -1;
+		new_node->index_value = -1;
 		push_back(stack_a, new_node);
 		i++;
 	}
 	if (args)
 		free_args(args);
 	set_index(*stack_a);
+	set_index_value(*stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:34:53 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 22:39:40 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:05:51 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	is_sorted(t_swap **stack)
 	temp_list = *stack;
 	while (temp_list->next)
 	{
-		if (temp_list->value > temp_list->next->value)
+		if (temp_list->index_value > temp_list->next->index_value)
 			return (0);
 		temp_list = temp_list->next;
 	}

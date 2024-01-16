@@ -22,6 +22,7 @@
 		"type_traits": "c",
 		"vector": "c",
 		"sstream": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"__functional_03": "c"
 	}
 }

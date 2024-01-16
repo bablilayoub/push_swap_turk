@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 00:56:58 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:06:53 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_swap
 {
 	int				value;
 	int				index;
+	int				index_value;
 	struct s_swap	*next;
 	struct s_swap	*prev;
 	struct s_swap	*target;
@@ -34,6 +35,7 @@ typedef struct s_swap
 
 // Indexing
 void	set_index(t_swap *stack);
+void	set_index_value(t_swap *stack);
 
 // List utils
 int		get_min_index(t_swap *stack);
@@ -48,6 +50,8 @@ void	send_error(void);
 
 // More utils
 int		next_min_value(t_swap *stack, int min_value);
+int		get_min_index_value(t_swap *stack);
+int		get_max_index_value(t_swap *stack);
 
 // List
 t_swap	*new_list(int value);

@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:46:02 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 00:13:18 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:07:54 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	sort_back(t_swap **stack_a, t_swap **stack_b)
 
 void	move_min_to_top(t_swap **stack_a)
 {
-	int	min_value;
+	int	min_index_value;
 
 	if (!stack_a || !*stack_a)
 		return ;
-	min_value = get_min_value(*stack_a);
-	while ((*stack_a)->value != min_value)
+	min_index_value = get_min_index_value(*stack_a);
+	while ((*stack_a)->index_value != min_index_value)
 	{
 		if ((*stack_a)->above_median)
 			rotate_a(stack_a);
@@ -76,7 +76,7 @@ void	sort_stack(t_swap **stack_a, t_swap **stack_b)
 	median = get_median(*stack_a);
 	while (list_size(*stack_a) > 3 && !is_sorted(stack_a))
 	{
-		if ((*stack_a)->value > median)
+		if ((*stack_a)->index_value > median)
 		{
 			push_b(stack_a, stack_b);
 			rotate_b(stack_b);
