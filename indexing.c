@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:38:27 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 17:02:55 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/16 19:52:23 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	set_index_value(t_swap *stack)
 	i = 0;
 	while (temp_list)
 	{
-		if (temp_list->value == min_value)
+		if (temp_list->value == min_value && temp_list->index_value == -1)
 		{
 			temp_list->index_value = i;
 			i++;
