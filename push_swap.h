@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:47:44 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 17:06:53 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/18 22:10:10 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,10 @@ void	checker_reverse_rotate_b(t_swap **stack_b);
 void	checker_reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b);
 
 // Checker utils
-int		ft_strcmp(char *s1, char *s2);
 void	invalid_instruction(t_swap **stack_a, t_swap **stack_b, char *line);
 void	checker_reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b);
-void	check_instruction(char *line, t_swap **stack_a, t_swap **stack_b);
+void	check_instruction(char *line, char *instructions,
+			t_swap **stack_a, t_swap **stack_b);
+void	apply_instruction(char *line, t_swap **stack_a, t_swap **stack_b);
 
 #endif

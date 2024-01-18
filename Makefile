@@ -7,7 +7,7 @@ SRCS			=	indexing.c lists_utils.c lists.c main.c more_operations.c operations.c 
 					parse_args.c stack.c start_sorting.c utils.c targets.c cost.c handle_sizes.c more_utils.c
 SRCS_BONUS		=	indexing.c lists_utils.c lists.c more_operations.c operations.c checker_operations.c \
 					checker_operations_more.c checker_utils.c parse_args.c stack.c start_sorting.c utils.c \
-					targets.c cost.c handle_sizes.c checker.c more_utils.c
+					targets.c cost.c handle_sizes.c checker.c more_utils.c checker_more_utils.c
 LIBS			=	./libs/ft_printf/libftprintf.a ./libs/libft/libft.a ./libs/get_next_line/get_next_line.c \
 					./libs/get_next_line/get_next_line_utils.c
 OBJ				=	$(SRCS:.c=.o)

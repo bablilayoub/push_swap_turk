@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:10:00 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 17:28:32 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/18 22:11:32 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,6 @@ int	valid_instruction(char *s1, char *s2)
 	return (1);
 }
 
-void	invalid_instruction(t_swap **stack_a, t_swap **stack_b, char *line)
-{
-	free_list(*stack_a);
-	free_list(*stack_b);
-	free(line);
-	send_error();
-}
-
-void	checker_reverse_rotate_a_and_b(t_swap **stack_a, t_swap **stack_b)
-{
-	if (!stack_a || !*stack_a || !(*stack_a)->next
-		|| !stack_b || !*stack_b || !(*stack_b)->next)
-		return ;
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-}
-
 void	check_if_sorted(t_swap **stack_a, t_swap **stack_b, char *line)
 {
 	if (is_sorted(stack_a) && !*stack_b)
@@ -68,7 +51,22 @@ void	check_if_sorted(t_swap **stack_a, t_swap **stack_b, char *line)
 	exit(1);
 }
 
-void	check_instruction(char *line, t_swap **stack_a, t_swap **stack_b)
+void	check_instruction(char *line, char *instructions,
+		t_swap **stack_a, t_swap **stack_b)
+{
+	if (!valid_instruction(line, "sa") && !valid_instruction(line, "sb")
+		&& !valid_instruction(line, "ss") && !valid_instruction(line, "pa")
+		&& !valid_instruction(line, "pb") && !valid_instruction(line, "ra")
+		&& !valid_instruction(line, "rb") && !valid_instruction(line, "rr")
+		&& !valid_instruction(line, "rra") && !valid_instruction(line, "rrb")
+		&& !valid_instruction(line, "rrr"))
+	{
+		free(instructions);
+		invalid_instruction(stack_a, stack_b, line);
+	}
+}
+
+void	apply_instruction(char *line, t_swap **stack_a, t_swap **stack_b)
 {
 	if (valid_instruction(line, "sa"))
 		return (checker_swap_a(stack_a));
@@ -92,7 +90,5 @@ void	check_instruction(char *line, t_swap **stack_a, t_swap **stack_b)
 		return (checker_reverse_rotate_b(stack_b));
 	else if (valid_instruction(line, "rrr"))
 		return (checker_reverse_rotate_a_and_b(stack_a, stack_b));
-	else if (valid_instruction(line, "done"))
-		return (check_if_sorted(stack_a, stack_b, line));
 	return (invalid_instruction(stack_a, stack_b, line));
 }

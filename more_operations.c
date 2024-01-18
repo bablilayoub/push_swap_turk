@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:56 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/15 16:09:28 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/18 22:02:18 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ void	rotate_b(t_swap **stack_b)
 
 void	rotate_a_and_b(t_swap **stack_a, t_swap **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next
-		|| !stack_b || !*stack_b || !(*stack_b)->next)
-		return ;
-	rotate(stack_a);
-	rotate(stack_b);
+	if (stack_a && *stack_a && (*stack_a)->next)
+		rotate(stack_a);
+	if (stack_b && *stack_b && (*stack_b)->next)
+		rotate(stack_b);
 	ft_printf("rr\n");
 }
 

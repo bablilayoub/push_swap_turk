@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 21:47:19 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/12 16:43:15 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/18 22:01:59 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ void	swap_b(t_swap **stack_b)
 
 void	swap_a_and_b(t_swap **stack_a, t_swap **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next
-		|| !stack_b || !*stack_b || !(*stack_b)->next)
-		return ;
-	swap(stack_a);
-	swap(stack_b);
+	if (stack_a && *stack_a && (*stack_a)->next)
+		swap(stack_a);
+	if (stack_b && *stack_b && (*stack_b)->next)
+		swap(stack_b);
 	ft_printf("ss\n");
 }
 
