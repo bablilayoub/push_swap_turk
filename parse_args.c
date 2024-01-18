@@ -6,7 +6,7 @@
 /*   By: abablil <abablil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:06:15 by abablil           #+#    #+#             */
-/*   Updated: 2024/01/16 17:06:37 by abablil          ###   ########.fr       */
+/*   Updated: 2024/01/18 02:09:02 by abablil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,40 +29,53 @@ void	check_duplicates(t_swap *stack_a, char **args, int value)
 	}
 }
 
-void	found_sign(char *number, size_t *i, int *sign)
+void	found_sign_and_skip_zeros(char *number, size_t *i, int *sign)
 {
+	int	found_zero;
+
+	found_zero = 0;
+	if (!number[*i])
+		return ;
 	if (number[*i] == '-' || number[*i] == '+')
 	{
 		if (number[*i] == '-')
 			*sign = -1;
 		(*i)++;
 	}
+	while (number[*i] == '0')
+	{
+		found_zero = 1;
+		(*i)++;
+	}
+	if (found_zero && number[*i] == '\0')
+		(*i)--;
 }
 
 int	is_valid_number(char *number)
 {
-	size_t	i;
-	long	result;
-	int		sign;
+	size_t		i;
+	long long	result;
+	int			sign;
+	int			len;
 
 	i = 0;
 	result = 0;
 	sign = 1;
-	if (!number[i])
-		return (0);
-	found_sign(number, &i, &sign);
+	len = 0;
+	found_sign_and_skip_zeros(number, &i, &sign);
 	if (!number[i])
 		return (0);
 	while (number[i])
 	{
 		if (!ft_isdigit(number[i]))
 			return (0);
-		if (number[i] >= '0' && number[i] <= '9')
-			result = result * 10 + (number[i] - '0');
+		result = result * 10 + (number[i] - '0');
 		i++;
+		len++;
 	}
 	result *= sign;
-	if (ft_strlen(number) != i || result < INT_MIN || result > INT_MAX)
+	if (ft_strlen(number) != i || result < INT_MIN
+		|| result > INT_MAX || len > 10)
 		return (0);
 	return (1);
 }
