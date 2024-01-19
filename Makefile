@@ -21,10 +21,10 @@ comp_start:
 	@cd ./libs/ft_printf && make
 
 $(NAME): comp_start $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(LINKS) $(LIBS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
 bonus: comp_start $(OBJ_BONUS)
-	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LINKS) $(LIBS) -o $(NAME_BONUS)
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBS) -o $(NAME_BONUS)
 
 %.o: %.c $(HEADER)
 	@echo "Making object file .."
